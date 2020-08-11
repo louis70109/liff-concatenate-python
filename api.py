@@ -10,7 +10,7 @@ CONCAT_ID = os.getenv('CONCAT_ID')
 def hello_world():
     # workaround
     if request.args.get('liff.state'):
-            return Response(render_template('liff_redirect.html', liff_id=CONCAT_ID))
+            return Response(render_template('redirect.html', liff_id=CONCAT_ID))
 
     fragments = request.args
     return Response(render_template('index.html', fragments=fragments, liff_id=CONCAT_ID))
