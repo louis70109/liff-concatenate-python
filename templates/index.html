@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>推播綁定完成</title>
+  </head>
+  <body>
+    <h1>{{ fragments }}</h1>
+    <script src="https://static.line-scdn.net/liff/edge/versions/2.3.1/sdk.js"></script>
+
+    <script>
+      alert("🔔 綁定完成囉！");
+      liff
+        .init({ liffId: "{{ liff_id }}" })
+        .then(() => {})
+        .catch((err) => {
+          liff.closeWindow();
+        });
+    </script>
+  </body>
+</html>
