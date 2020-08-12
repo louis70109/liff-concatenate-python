@@ -1,16 +1,40 @@
-# Subscribe open data with LINE Bot/Notify/LIFF
+# LINE LIFF concatenate mode example
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/Python-%3E%3D%203.5-blue.svg)](https://badge.fury.io/py/lotify)
 
-# Env
+This is a template for LIFF concatenate mode by python.
+
+# Environment
 
 - LINE LIFF v2.3 concat mode
 - Flask / python3.7
 
-# Developer Side
+# Heroku
 
-## Local testing
+You can test this project on Heroku.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+Use following up commands to check machine:
+
+```
+heroku run bash -a YOUR_HEROKU_NAME
+heroku logs --tail -a YOUR_HEROKU_NAME
+```
+
+# LIFF Settings
+
+- Login `LINE Developer Console`.
+- Create a `LINE Login` channel.
+- Click `LIFF` tab and add LIFF application.
+- Input `https://YOUR_URL/notify` in Endpoint URL column.
+- Copy `LIFF ID` to environment `CONCAT_ID` variable.
+- Now you can test concat cases:
+  - https://liff.line.me/LIFF_ID?aaa=bbb
+  - https://liff.line.me/LIFF_ID?a=123&b=456
+
+# Local testing
 
 1. first terminal window
 
@@ -26,7 +50,7 @@ python api.py
 ngrok http 5000
 ```
 
-or maybe you have npm environment:
+If you have npm environment:
 
 ```
 npx ngrok http 5000
@@ -37,26 +61,6 @@ npx ngrok http 5000
 3. Copy url to LINE Developer Console
 
 ![](https://i.imgur.com/xOingAO.png)
-
-## Heroku
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
-Click `Configure Add-ons` and input `Heroku Scheduler` to install scheduler.
-
-![](https://i.imgur.com/cval2jv.png)
-
-Add two jobs on Heroku Schedular:
-
-- `python scripts/sync_to_sqlite.py`
-- `python scripts/notify_me.py`
-
-If you are not sure where are files in, use following up commands:
-
-```
-heroku run bash
-heroku logs --tail
-```
 
 # License
 
